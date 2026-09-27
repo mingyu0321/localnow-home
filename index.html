@@ -5,23 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>지로 | 지금 로컬 !</title>
-  <meta name="description" content="지역의 숨겨진 잠재력을 찾아 소개하는 파트너, 지로 지금 로컬!">
 
   <style>
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
       font-family: Arial, "Noto Sans KR", sans-serif;
-      color: #202124;
-      background: #fff;
-      line-height: 1.6;
+      color: #222;
+      line-height: 1.7;
     }
 
     a {
@@ -29,372 +23,164 @@
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    .top-bar {
-      height: 64px;
+    header {
+      height: 70px;
       border-bottom: 1px solid #e5e5e5;
       display: flex;
       align-items: center;
-      padding: 0 28px;
+      padding: 0 32px;
       position: sticky;
       top: 0;
       background: rgba(255,255,255,.97);
       z-index: 100;
     }
 
-    .site-name {
-      font-size: 20px;
+    .logo {
+      font-size: 21px;
       font-weight: 600;
     }
 
-    .menu {
+    .logo span {
+      font-weight: 400;
+    }
+
+    nav {
       margin-left: auto;
       display: flex;
-      gap: 28px;
+      gap: 27px;
       font-size: 14px;
     }
 
-    .menu a:hover {
+    nav a:hover {
       text-decoration: underline;
     }
-
-    /* =========================
-       NOTICE
-    ========================= */
-
-    .notice {
-      background: #f5f5f5;
-      text-align: center;
-      padding: 14px 20px;
-      font-size: 14px;
-    }
-
-    .notice a {
-      margin-left: 12px;
-      text-decoration: underline;
-    }
-
-    /* =========================
-       COMMON
-    ========================= */
-
-    .section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 75px 30px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
-    }
-
-    .section-title h2 {
-      margin: 0 0 10px;
-      font-size: 30px;
-      font-weight: 500;
-      letter-spacing: -1px;
-    }
-
-    .section-title p {
-      margin: 0;
-      color: #777;
-      font-size: 15px;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
 
     .hero {
-      text-align: center;
-      padding: 105px 30px 110px;
-    }
-
-    .hero h1 {
-      margin: 0 0 28px;
-      font-size: 48px;
-      font-weight: 500;
-      letter-spacing: -2px;
-    }
-
-    .hero .main-copy {
-      font-size: 21px;
-      margin-bottom: 12px;
-    }
-
-    .hero .sub-copy {
-      max-width: 720px;
-      margin: 0 auto;
-      color: #666;
-      font-size: 16px;
-    }
-
-    /* =========================
-       NEWS
-    ========================= */
-
-    .news-section {
-      background: #fafafa;
-    }
-
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-
-    .news-card {
-      background: white;
-      border: 1px solid #e8e8e8;
-    }
-
-    .news-image {
-      width: 100%;
-      height: 210px;
-      background: #e9e9e9;
+      min-height: 620px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #999;
-      font-size: 13px;
-    }
-
-    .news-content {
-      padding: 22px;
-    }
-
-    .news-content h3 {
-      font-size: 18px;
-      font-weight: 500;
-      margin: 0 0 10px;
-    }
-
-    .news-content p {
-      margin: 0 0 12px;
-      color: #666;
-      font-size: 14px;
-    }
-
-    .date {
-      color: #999;
-      font-size: 12px;
-    }
-
-    .more {
-      display: block;
-      width: fit-content;
-      margin: 35px auto 0;
-      text-decoration: underline;
-      font-size: 14px;
-    }
-
-    /* =========================
-       LETTER
-    ========================= */
-
-    .letter-list {
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .letter-item {
-      display: block;
-      padding: 28px 10px;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .letter-item:first-child {
-      border-top: 1px solid #ddd;
-    }
-
-    .letter-item h3 {
-      margin: 0 0 7px;
-      font-size: 19px;
-      font-weight: 500;
-    }
-
-    .letter-item p {
-      margin: 3px 0;
-      color: #666;
-      font-size: 14px;
-    }
-
-    /* =========================
-       CARD NEWS
-    ========================= */
-
-    .cardnews-section {
-      background: #fafafa;
-    }
-
-    .cardnews-list {
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .cardnews-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      padding: 25px 10px;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .cardnews-item:first-child {
-      border-top: 1px solid #ddd;
-    }
-
-    .cardnews-item h3 {
-      margin: 0 0 5px;
-      font-size: 17px;
-      font-weight: 500;
-    }
-
-    .cardnews-item p {
-      margin: 0;
-      color: #666;
-      font-size: 14px;
-    }
-
-    /* =========================
-       COLLABORATION
-    ========================= */
-
-    .collaboration {
       text-align: center;
+      padding: 80px 20px;
     }
 
-    .collaboration-intro {
-      margin-bottom: 35px;
+    .hero h1 {
+      font-size: 55px;
+      font-weight: 500;
+      margin: 0 0 25px;
+      letter-spacing: -2px;
     }
 
-    .collaboration-intro p {
+    .hero .subtitle {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      color: #666;
+      font-size: 16px;
       margin: 6px 0;
     }
 
-    .collaboration-points {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px 30px;
-      margin-bottom: 35px;
+    .section {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 80px 30px;
     }
 
-    .collaboration-points span {
-      font-size: 15px;
+    .section.gray {
+      max-width: none;
+      background: #f7f7f7;
     }
 
-    .collaboration-button {
-      display: inline-block;
-      padding: 13px 28px;
-      border: 1px solid #333;
-      transition: .2s;
+    .section-inner {
+      max-width: 1050px;
+      margin: auto;
     }
 
-    .collaboration-button:hover {
-      background: #222;
-      color: white;
+    h2 {
+      font-size: 31px;
+      font-weight: 500;
+      margin: 0 0 35px;
+      letter-spacing: -1px;
     }
 
-    /* =========================
-       CONTACT
-    ========================= */
+    .intro {
+      text-align: center;
+    }
+
+    .intro p {
+      color: #666;
+      font-size: 17px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      border: 1px solid #ddd;
+      padding: 30px;
+      min-height: 190px;
+    }
+
+    .card .date {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      font-weight: 500;
+      margin: 0 0 12px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .more {
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    .more a {
+      border-bottom: 1px solid #222;
+      padding-bottom: 3px;
+      font-size: 14px;
+    }
 
     .contact {
-      background: #f7f7f7;
       text-align: center;
     }
-
-    .contact p {
-      margin: 7px 0;
-      font-size: 14px;
-    }
-
-    .social {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
-      font-size: 14px;
-    }
-
-    .social a {
-      text-decoration: underline;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
 
     footer {
-      padding: 35px 20px;
+      border-top: 1px solid #ddd;
+      padding: 40px 20px;
       text-align: center;
-      color: #777;
+      color: #888;
       font-size: 12px;
     }
 
-    footer a {
-      text-decoration: underline;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 750px) {
-
-      .top-bar {
-        padding: 0 18px;
-      }
-
-      .menu {
+    @media (max-width: 800px) {
+      nav {
         display: none;
       }
 
-      .hero {
-        padding: 75px 22px 80px;
+      header {
+        padding: 0 18px;
       }
 
       .hero h1 {
-        font-size: 37px;
+        font-size: 40px;
       }
 
-      .hero .main-copy {
-        font-size: 18px;
-      }
-
-      .section {
-        padding: 60px 20px;
-      }
-
-      .section-title h2 {
-        font-size: 25px;
-      }
-
-      .news-grid {
+      .cards {
         grid-template-columns: 1fr;
-      }
-
-      .news-image {
-        height: 230px;
-      }
-
-      .cardnews-item {
-        display: block;
-      }
-
-      .cardnews-item .date {
-        display: block;
-        margin-top: 10px;
       }
     }
   </style>
@@ -402,398 +188,201 @@
 
 <body>
 
-  <!-- 상단 -->
-  <header class="top-bar">
+<header>
+  <a href="./" class="logo">
+    지로 <span>| 지금 로컬 !</span>
+  </a>
 
-    <a href="/" class="site-name">
-      지로 | 지금 로컬 !
-    </a>
+  <nav>
+    <a href="./about/">소개</a>
+    <a href="./news/">소식</a>
+    <a href="./letter/">지로레터</a>
+    <a href="./cardnews/">카드뉴스</a>
+    <a href="./collaboration/">협업 제안</a>
+    <a href="./consulting/">AI 지역활성화 컨설팅</a>
+    <a href="./en/">English</a>
+    <a href="./ja/">日本語</a>
+  </nav>
+</header>
 
-    <nav class="menu">
-      <a href="#news">소식</a>
-      <a href="#letter">지로레터</a>
-      <a href="#cardnews">카드뉴스</a>
-      <a href="#collaboration">협업</a>
-    </nav>
 
-  </header>
+<section class="hero">
 
+  <div>
+    <h1>지로 지금 로컬!</h1>
 
-  <!-- 복귀 안내 -->
-  <div class="notice">
-    <strong>지로 복귀 안내</strong>
-    <a href="/공지사항/지로-복귀-안내">공지사항 보기</a>
+    <div class="subtitle">
+      지역의 숨겨진 잠재력을 찾아 소개하는 파트너
+    </div>
+
+    <p>
+      지역의 가치를 발굴하고, 내일의 가능성을 설계합니다.
+    </p>
+
+    <p>
+      인문학과 데이터를 기반으로 한 다국어 지역 소개 콘텐츠
+    </p>
   </div>
 
+</section>
 
-  <!-- 메인 -->
-  <main>
 
-    <section class="hero">
+<section class="section">
 
-      <h1>지로 지금 로컬!</h1>
+  <div class="intro">
 
-      <div class="main-copy">
-        "지역의 숨겨진 잠재력을 찾아 소개하는 파트너"
-      </div>
-
-      <div class="sub-copy">
-        지역의 가치를 발굴하고, 내일의 가능성을 설계합니다.
-        <br><br>
-        인문학과 데이터를 기반으로 한 다국어 지역 소개 콘텐츠를
-        제작해 지역활성화의 토대를 다져나가겠습니다.
-      </div>
-
-    </section>
-
-
-    <!-- 최신 소식 -->
-    <section id="news" class="section news-section">
-
-      <div class="section-title">
-        <h2>지로의 최신 소식</h2>
-      </div>
-
-      <div class="news-grid">
-
-        <a
-          class="news-card"
-          href="https://www.localnow.kr/"
-        >
-
-          <div class="news-image">
-            보령 신비의 바닷길축제 이미지
-          </div>
-
-          <div class="news-content">
-            <h3>보령 신비의 바닷길축제 답사</h3>
-
-            <p>
-              지로는 보령에서 열린 2026 신비의 바닷길 축제를
-              답사했습니다.
-            </p>
-
-            <span class="date">
-              2026.09.13
-            </span>
-          </div>
-
-        </a>
-
-
-        <a
-          class="news-card"
-          href="https://www.youtube.com/"
-          target="_blank"
-        >
-
-          <div class="news-image">
-            수원화성 드론쇼 이미지
-          </div>
-
-          <div class="news-content">
-            <h3>수원화성 드론쇼 답사</h3>
-
-            <p>
-              지로는 화성행궁 광장에서 열린 사통팔달 어울림
-              한마당의 드론쇼를 비롯한 야간 콘텐츠를 답사했습니다.
-            </p>
-
-            <span class="date">
-              2026.09.12
-            </span>
-          </div>
-
-        </a>
-
-
-        <a
-          class="news-card"
-          href="https://www.localnow.kr/"
-        >
-
-          <div class="news-image">
-            청양 고추구기자 축제 이미지
-          </div>
-
-          <div class="news-content">
-            <h3>청양 고추구기자 축제 답사</h3>
-
-            <p>
-              지로는 며칠 전 고추 축제 카드뉴스를 발행한 후,
-              청양 고추구기자 축제 현장을 답사했습니다.
-            </p>
-
-            <span class="date">
-              2026.09.12
-            </span>
-          </div>
-
-        </a>
-
-      </div>
-
-      <a
-        class="more"
-        href="https://www.localnow.kr/"
-      >
-        지로 소식 더보기
-      </a>
-
-    </section>
-
-
-    <!-- 지로레터 -->
-    <section id="letter" class="section">
-
-      <div class="section-title">
-        <h2>지로레터 (최신호)</h2>
-      </div>
-
-      <div class="letter-list">
-
-        <a
-          class="letter-item"
-          href="https://www.localnow.kr/"
-        >
-
-          <h3>지로레터 Vol. 6</h3>
-
-          <p>전라남도 완도군</p>
-
-          <p>
-            2026년 6월호
-            (2026.06.19 발행)
-          </p>
-
-          <p class="date">
-            (클릭시 이동)
-          </p>
-
-        </a>
-
-
-        <a
-          class="letter-item"
-          href="https://www.localnow.kr/"
-        >
-
-          <h3>지로레터 Vol. 5</h3>
-
-          <p>경상북도 영덕군</p>
-
-          <p>
-            2026년 5월호
-            (2026.05.19 발행)
-          </p>
-
-          <p class="date">
-            (클릭시 이동)
-          </p>
-
-        </a>
-
-      </div>
-
-      <a
-        class="more"
-        href="https://www.localnow.kr/"
-      >
-        지로레터 더보기
-      </a>
-
-    </section>
-
-
-    <!-- 카드뉴스 -->
-    <section id="cardnews" class="section cardnews-section">
-
-      <div class="section-title">
-        <h2>지로의 지역 소개 카드뉴스</h2>
-      </div>
-
-      <div class="cardnews-list">
-
-        <a
-          class="cardnews-item"
-          href="https://www.instagram.com/"
-          target="_blank"
-        >
-
-          <div>
-            <h3>청양과 괴산 고추축제이야기</h3>
-
-            <p>
-              고추의 소중함과 고추축제 이야기!
-            </p>
-          </div>
-
-          <span class="date">
-            2026.09.02
-          </span>
-
-        </a>
-
-
-        <a
-          class="cardnews-item"
-          href="https://m.blog.naver.com/localnow"
-          target="_blank"
-        >
-
-          <div>
-            <h3>
-              2026년 한국관광 트렌드와 지역관광
-            </h3>
-
-            <p>
-              제2회 요즘, 한국관광 데이터 세미나 참관기
-            </p>
-          </div>
-
-          <span class="date">
-            2026.09.01
-          </span>
-
-        </a>
-
-
-        <a
-          class="cardnews-item"
-          href="https://www.instagram.com/"
-          target="_blank"
-        >
-
-          <div>
-            <h3>
-              칠월칠석 견우직녀 설화
-            </h3>
-
-            <p>
-              지로 세시풍속 특집 3_칠월칠석 견우직녀 설화
-            </p>
-          </div>
-
-          <span class="date">
-            2026.08.18
-          </span>
-
-        </a>
-
-      </div>
-
-      <a
-        class="more"
-        href="https://www.instagram.com/"
-        target="_blank"
-      >
-        인스타그램에서 카드뉴스 더보기
-      </a>
-
-    </section>
-
-
-    <!-- 협업 -->
-    <section id="collaboration" class="section collaboration">
-
-      <div class="section-title">
-        <h2>협업 제안하기</h2>
-      </div>
-
-      <div class="collaboration-intro">
-
-        <p>
-          지로는 다양한 방식의 협력을 환영합니다!!
-        </p>
-
-        <p>
-          주요 협력 포인트
-        </p>
-
-      </div>
-
-
-      <div class="collaboration-points">
-
-        <span>지역 콘텐츠 제작</span>
-        <span>지역활성화 컨설팅</span>
-        <span>인터뷰/행사 취재</span>
-        <span>기타 제안</span>
-
-      </div>
-
-
-      <a
-        class="collaboration-button"
-        href="https://docs.google.com/"
-        target="_blank"
-      >
-        협업 제안
-      </a>
-
-    </section>
-
-
-    <!-- 문의 -->
-    <section class="section contact">
-
-      <div class="section-title">
-        <h2>기타 문의</h2>
-      </div>
-
-      <p>
-        이메일: contact@localnow.kr
-      </p>
-
-      <p>
-        전화: 0507-1390-7145 / 이메일: contact@localnow.kr
-      </p>
-
-
-      <div class="social">
-
-        <a
-          href="https://www.instagram.com/localnow.kr/"
-          target="_blank"
-        >
-          인스타그램: @localnow.kr
-        </a>
-
-        <a
-          href="https://blog.naver.com/localnow"
-          target="_blank"
-        >
-          블로그: blog.naver.com/localnow
-        </a>
-
-        <a
-          href="https://www.youtube.com/@localnow_kr"
-          target="_blank"
-        >
-          유튜브: youtube.com/@localnow_kr
-        </a>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- Footer -->
-  <footer>
+    <h2>지로의 최신 소식</h2>
 
     <p>
-      <a href="/privacy">
-        개인정보 처리방침
+      지로의 활동과 지역 현장 이야기를 전합니다.
+    </p>
+
+  </div>
+
+  <div class="cards">
+
+    <a class="card" href="./news/">
+      <div class="date">2026.09.12</div>
+      <h3>청양 고추구기자 축제 답사</h3>
+      <p>
+        청양 고추구기자 축제 현장을 직접 답사했습니다.
+      </p>
+    </a>
+
+    <a class="card" href="./news/">
+      <div class="date">2026.09.09</div>
+      <h3>국가유산 산업 인턴십 지원사업 성과공유회</h3>
+      <p>
+        국가유산 산업 인턴십 지원사업 성과공유회에 참석했습니다.
+      </p>
+    </a>
+
+    <a class="card" href="./news/">
+      <div class="date">2026.09.09</div>
+      <h3>마을브랜드 디자인 개발 회의</h3>
+      <p>
+        조원2동 마을고추장 브랜드 디자인 개발 TF 회의에 참석했습니다.
+      </p>
+    </a>
+
+  </div>
+
+  <div class="more">
+    <a href="./news/">지로 소식 더보기 →</a>
+  </div>
+
+</section>
+
+
+<section class="section gray">
+
+  <div class="section-inner">
+
+    <h2>지로레터</h2>
+
+    <div class="cards">
+
+      <a class="card" href="./letter/">
+        <div class="date">Vol. 6 · 2026.06.19</div>
+        <h3>전라남도 완도군</h3>
+        <p>
+          지로레터 6월호
+        </p>
       </a>
+
+      <a class="card" href="./letter/">
+        <div class="date">Vol. 5 · 2026.05.19</div>
+        <h3>경상북도 영덕군</h3>
+        <p>
+          지로레터 5월호
+        </p>
+      </a>
+
+    </div>
+
+    <div class="more">
+      <a href="./letter/">지로레터 더보기 →</a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="section-inner">
+
+    <h2>지로의 지역 소개 카드뉴스</h2>
+
+    <div class="cards">
+
+      <a class="card" href="./cardnews/">
+        <div class="date">2026.09.02</div>
+        <h3>청양과 괴산 고추축제이야기</h3>
+        <p>
+          고추의 소중함과 고추축제 이야기
+        </p>
+      </a>
+
+      <a class="card" href="./cardnews/">
+        <div class="date">2026.08.18</div>
+        <h3>칠월칠석 견우직녀 설화</h3>
+        <p>
+          지로 세시풍속 특집 3
+        </p>
+      </a>
+
+      <a class="card" href="./cardnews/">
+        <div class="date">2026.06.30</div>
+        <h3>영화로도 만들어졌던 홍의장군 이야기</h3>
+        <p>
+          임진왜란 최초의 의병장, 홍의장군 곽재우
+        </p>
+      </a>
+
+    </div>
+
+    <div class="more">
+      <a href="./cardnews/">카드뉴스 더보기 →</a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section gray">
+
+  <div class="section-inner contact">
+
+    <h2>협업 제안하기</h2>
+
+    <p>
+      지로는 다양한 방식의 협력을 환영합니다.
     </p>
 
     <p>
-      Copyright ⓒ 2025-2026 지로 지금 로컬 All rights reserved.
+      지역 콘텐츠 제작 · 지역활성화 컨설팅 · 인터뷰/행사 취재 · 기타 제안
     </p>
 
-  </footer>
+    <div class="more">
+      <a href="./collaboration/">협업 제안하기 →</a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <p>지로 | 지금 로컬 !</p>
+  <p>contact@localnow.kr</p>
+  <p>0507-1390-7145</p>
+  <p>Copyright © 2025-2026 지로 지금 로컬</p>
+
+</footer>
 
 </body>
 </html>
