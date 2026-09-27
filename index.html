@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>지로 | 지금 로컬 !</title>
+  <meta name="description" content="지역의 숨겨진 잠재력을 찾아 소개하는 파트너, 지로 지금 로컬!">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Noto Sans KR",
+        "Segoe UI",
+        sans-serif;
+      color: #222;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ===== Header ===== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid #eee;
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      height: 72px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      font-weight: 400;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: #444;
+    }
+
+    nav a:hover {
+      color: #111;
+    }
+
+    /* ===== Hero ===== */
+
+    .hero {
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(
+          rgba(255,255,255,0.92),
+          rgba(255,255,255,0.92)
+        ),
+        url("https://images.unsplash.com/photo-1538485399081-7c897d7a1f3e?auto=format&fit=crop&w=1800&q=80")
+        center/cover;
+    }
+
+    .hero-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 24px;
+    }
+
+    .hero small {
+      font-size: 14px;
+      color: #777;
+    }
+
+    .hero h1 {
+      margin: 15px 0 20px;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.15;
+      letter-spacing: -4px;
+    }
+
+    .hero h1 span {
+      font-weight: 400;
+    }
+
+    .hero p {
+      max-width: 680px;
+      font-size: 20px;
+      color: #555;
+      margin: 0;
+    }
+
+    /* ===== Common ===== */
+
+    section {
+      padding: 100px 24px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      letter-spacing: -1.5px;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: #777;
+    }
+
+    /* ===== About ===== */
+
+    .about {
+      background: #fafafa;
+    }
+
+    .about-box {
+      max-width: 850px;
+    }
+
+    .about-box h3 {
+      font-size: 27px;
+      margin-bottom: 20px;
+    }
+
+    .about-box p {
+      font-size: 17px;
+      color: #555;
+    }
+
+    /* ===== News ===== */
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      border: 1px solid #eee;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .card-image {
+      height: 220px;
+      background: #eee;
+      overflow: hidden;
+    }
+
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 22px;
+    }
+
+    .card-body h3 {
+      margin: 0 0 10px;
+      font-size: 19px;
+    }
+
+    .card-body p {
+      margin: 0 0 12px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .date {
+      font-size: 12px;
+      color: #999;
+    }
+
+    /* ===== Letter ===== */
+
+    .letter {
+      background: #f7f7f5;
+    }
+
+    .letter-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .letter-card {
+      padding: 32px;
+      background: white;
+      border-radius: 14px;
+      border: 1px solid #eee;
+    }
+
+    .letter-card h3 {
+      margin-top: 0;
+    }
+
+    /* ===== Card News ===== */
+
+    .content-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .content-item {
+      padding: 25px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .content-item h3 {
+      margin: 0 0 5px;
+      font-size: 18px;
+    }
+
+    .content-item p {
+      margin: 0;
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* ===== Collaboration ===== */
+
+    .collaboration {
+      background: #111;
+      color: white;
+    }
+
+    .collaboration .section-title p {
+      color: #aaa;
+    }
+
+    .collaboration-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin: 35px 0;
+    }
+
+    .collaboration-item {
+      padding: 24px;
+      border: 1px solid #444;
+      border-radius: 10px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 24px;
+      border-radius: 30px;
+      background: white;
+      color: #111;
+      font-weight: 600;
+    }
+
+    /* ===== Footer ===== */
+
+    footer {
+      padding: 50px 24px;
+      background: #0b0b0b;
+      color: #888;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-logo {
+      color: white;
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    /* ===== Mobile ===== */
+
+    @media (max-width: 800px) {
+
+      .header-inner {
+        height: 62px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: 500px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+
+      section {
+        padding: 70px 20px;
+      }
+
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .letter-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .collaboration-list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .content-item {
+        display: block;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .collaboration-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+
+      <a href="#" class="logo">
+        지로 <span>| 지금 로컬 !</span>
+      </a>
+
+      <nav>
+        <a href="#about">소개</a>
+        <a href="#news">소식</a>
+        <a href="#letter">지로레터</a>
+        <a href="#cardnews">카드뉴스</a>
+        <a href="#collaboration">협업 제안</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- Hero -->
+  <section class="hero">
+
+    <div class="hero-inner">
+
+      <small>JIRO | LOCAL NOW</small>
+
+      <h1>
+        지로<br>
+        <span>지금 로컬!</span>
+      </h1>
+
+      <p>
+        지역의 숨겨진 잠재력을 찾아 소개하는 파트너
+      </p>
+
+      <p style="margin-top:10px;">
+        지역의 가치를 발굴하고, 내일의 가능성을 설계합니다.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- About -->
+  <section id="about" class="about">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>지로는 무엇을 하나요?</h2>
+        <p>인문학과 데이터를 기반으로 지역을 바라봅니다.</p>
+      </div>
+
+      <div class="about-box">
+
+        <h3>
+          지역의 고유한 매력을 발견하고
+          새로운 가능성을 이야기합니다.
+        </h3>
+
+        <p>
+          인문학과 데이터를 기반으로 한 다국어 지역 소개 콘텐츠를
+          제작해 지역활성화의 토대를 다져나가겠습니다.
+        </p>
+
+        <p>
+          지역의 역사와 문화, 사람들의 삶을 살펴보고
+          지역만의 고유한 가치를 발굴합니다.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- News -->
+  <section id="news">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>지로의 최신 소식</h2>
+        <p>지로가 직접 현장에서 전하는 지역 이야기</p>
+      </div>
+
+      <div class="news-grid">
+
+        <a class="card"
+           href="#"
+           target="_blank">
+
+          <div class="card-image">
+            <img
+              src="https://lh7-us.googleusercontent.com/"
+              alt="보령 신비의 바닷길축제 답사">
+          </div>
+
+          <div class="card-body">
+            <h3>보령 신비의 바닷길축제 답사</h3>
+            <p>
+              지로는 보령에서 열린
+              2026 신비의 바닷길 축제를 답사했습니다.
+            </p>
+            <div class="date">2026.09.13</div>
+          </div>
+
+        </a>
+
+
+        <a class="card"
+           href="https://www.youtube.com/"
+           target="_blank">
+
+          <div class="card-image">
+            <img
+              src="https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?auto=format&fit=crop&w=1000&q=80"
+              alt="수원화성 드론쇼">
+          </div>
+
+          <div class="card-body">
+            <h3>수원화성 드론쇼 답사</h3>
+            <p>
+              화성행궁 광장에서 열린 야간 콘텐츠를 답사했습니다.
+            </p>
+            <div class="date">2026.09.12</div>
+          </div>
+
+        </a>
+
+
+        <a class="card" href="#" target="_blank">
+
+          <div class="card-image">
+            <img
+              src="https://images.unsplash.com/photo-1594708767771-a7502209ff51?auto=format&fit=crop&w=1000&q=80"
+              alt="청양 고추구기자 축제">
+          </div>
+
+          <div class="card-body">
+            <h3>청양 고추구기자 축제 답사</h3>
+            <p>
+              청양 고추구기자 축제 현장을 직접 답사했습니다.
+            </p>
+            <div class="date">2026.09.12</div>
+          </div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Letter -->
+  <section id="letter" class="letter">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>지로레터</h2>
+        <p>지역의 이야기를 담은 지로의 뉴스레터</p>
+      </div>
+
+      <div class="letter-grid">
+
+        <a class="letter-card" href="#" target="_blank">
+          <h3>지로레터 Vol. 6</h3>
+          <p>전라남도 완도군</p>
+          <small>2026년 6월호 · 2026.06.19 발행</small>
+        </a>
+
+        <a class="letter-card" href="#" target="_blank">
+          <h3>지로레터 Vol. 5</h3>
+          <p>경상북도 영덕군</p>
+          <small>2026년 5월호 · 2026.05.19 발행</small>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Card News -->
+  <section id="cardnews">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>지로의 지역 소개 카드뉴스</h2>
+        <p>지역의 역사와 문화, 이야기를 카드뉴스로 소개합니다.</p>
+      </div>
+
+      <div class="content-list">
+
+        <a
+          class="content-item"
+          href="https://www.instagram.com/"
+          target="_blank">
+
+          <div>
+            <h3>청양과 괴산 고추축제 이야기</h3>
+            <p>고추의 소중함과 고추축제 이야기!</p>
+          </div>
+
+          <span class="date">2026.09.02</span>
+
+        </a>
+
+
+        <a
+          class="content-item"
+          href="https://blog.naver.com/localnow"
+          target="_blank">
+
+          <div>
+            <h3>2026년 한국관광 트렌드와 지역관광</h3>
+            <p>
+              제2회 요즘, 한국관광 데이터 세미나 참관기
+            </p>
+          </div>
+
+          <span class="date">2026.09.01</span>
+
+        </a>
+
+
+        <a
+          class="content-item"
+          href="https://www.instagram.com/"
+          target="_blank">
+
+          <div>
+            <h3>칠월칠석 견우직녀 설화</h3>
+            <p>지로 세시풍속 특집 3</p>
+          </div>
+
+          <span class="date">2026.08.18</span>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- Collaboration -->
+  <section id="collaboration" class="collaboration">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>협업 제안하기</h2>
+        <p>지로는 다양한 방식의 협력을 환영합니다!</p>
+      </div>
+
+      <div class="collaboration-list">
+
+        <div class="collaboration-item">
+          지역 콘텐츠 제작
+        </div>
+
+        <div class="collaboration-item">
+          지역활성화 컨설팅
+        </div>
+
+        <div class="collaboration-item">
+          인터뷰 / 행사 취재
+        </div>
+
+        <div class="collaboration-item">
+          기타 제안
+        </div>
+
+      </div>
+
+      <a
+        class="button"
+        href="https://docs.google.com/"
+        target="_blank">
+        협업 제안하기 →
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+
+    <div class="footer-inner">
+
+      <div class="footer-logo">
+        지로 | 지금 로컬 !
+      </div>
+
+      <div class="footer-links">
+        <a href="mailto:contact@localnow.kr">
+          contact@localnow.kr
+        </a>
+
+        <a href="https://www.instagram.com/localnow.kr/"
+           target="_blank">
+          Instagram
+        </a>
+
+        <a href="https://blog.naver.com/localnow"
+           target="_blank">
+          Naver Blog
+        </a>
+
+        <a href="https://www.youtube.com/@localnow_kr"
+           target="_blank">
+          YouTube
+        </a>
+      </div>
+
+      <p>
+        Copyright © 2025-2026 지로 지금 로컬 All rights reserved.
+      </p>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
